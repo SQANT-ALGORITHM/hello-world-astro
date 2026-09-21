@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "") || "";
+---
+
+<Layout>
+  <div id="app">
+    <div>
+      <a href="https://astro.build" target="_blank" rel="noopener noreferrer">
+        <img src={`${base}/astro.svg`} class="logo" alt="Astro logo" />
+      </a>
+      <a href="https://webflow.com/cloud" target="_blank" rel="noopener noreferrer">
+        <img src={`${base}/webflow.svg`} class="logo vanilla" alt="Webflow logo" />
+      </a>
+      <h1>Astro + Webflow Cloud</h1>
+      <div class="card">
+        <button id="counter" type="button"></button>
+      </div>
+      <p class="read-the-docs">
+        Click on the Astro and Webflow logos to learn more
+      </p>
+    </div>
+  </div>
+  <script>
+    import { setupCounter } from "../lib/counter";
+
+    const counterEl = document.querySelector<HTMLButtonElement>("#counter")!;
+    setupCounter(counterEl);
+  </script>
+</Layout>
